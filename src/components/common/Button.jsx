@@ -1,7 +1,7 @@
 export default function Button({ children, className = "", ...props }) {
   return (
-    <button className={`btn ${className}`} {...props}>
+    <button className={`btn cursor-pointer ${className}`} {...props}>
       {children}
     </button>
-  )
+  );
 }

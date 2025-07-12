@@ -3,7 +3,7 @@ import Banner from './Banner'
 
 export default function Home() {
   return (
-    <div>
+    <div className='container '>
       <Banner/>
     </div>
   )
