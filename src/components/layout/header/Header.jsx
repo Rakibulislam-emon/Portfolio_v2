@@ -1,15 +1,18 @@
 import { Menu } from "@headlessui/react";
 import DesktopNavLinks from "./DesktopNavLinks";
 import MobileNavLinks from "./MobileNavLinks";
+import { Link } from "react-router";
 
 export default function Header() {
   return (
     <header className="py-6 bg-[var(--header-background)]">
       <div className="max-w-7xl  mx-auto px-4 md:px-0 flex justify-between items-center relative">
         {/* Logo */}
-        <div className="text-heading md:text-2xl font-bold ">
-          𝓡𝓪𝓴𝓲𝓫𝓾𝓵 𝓘𝓼𝓵𝓪𝓶 𝓔𝓶𝓸𝓷
-        </div>
+       <Link to={"/"}>
+          <div className="text-heading md:text-2xl font-bold ">
+            𝓡𝓪𝓴𝓲𝓫𝓾𝓵 𝓘𝓼𝓵𝓪𝓶 𝓔𝓶𝓸𝓷
+          </div>
+       </Link>
 
         {/* Mobile Menu (Headless UI Dropdown) */}
         <div className="md:hidden">

@@ -1,10 +1,15 @@
 import { createBrowserRouter } from "react-router";
+import { lazy, Suspense } from "react";
 import App from "../App";
-import Home from "../components/pages/Home/Home";
-import About from "../components/pages/About/About";
-import Portfolio from "../components/pages/Portfolio/Portfolio";
-import Blog from "../components/pages/Blog/Blog";
-import Contact from "../components/pages/Contact/Contact";
+import PageLoader from "../components/common/PageLoader";
+
+// Lazy load pages for better performance
+const Home = lazy(() => import("../components/pages/Home/Home"));
+const About = lazy(() => import("../components/pages/About/About"));
+const Portfolio = lazy(() => import("../components/pages/Portfolio/Portfolio"));
+const Blog = lazy(() => import("../components/pages/Blog/Blog"));
+const Contact = lazy(() => import("../components/pages/Contact/Contact"));
+const NotFound = lazy(() => import("../components/pages/NotFound/NotFound"));
 
 export const router = createBrowserRouter([
   {
@@ -13,23 +18,51 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/portfolio",
-        element: <Portfolio />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <Portfolio />
+          </Suspense>
+        ),
       },
       {
         path: "/blog",
-        element: <Blog/>,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <Blog />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "*",
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <NotFound />
+          </Suspense>
+        ),
       },
     ],
   },
