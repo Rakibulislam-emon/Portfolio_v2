@@ -5,7 +5,7 @@ import MobileNavLinks from "./MobileNavLinks";
 export default function Header() {
   return (
     <header className="py-6 bg-[var(--header-background)]">
-      <div className="container px-4 md:px-24 flex justify-between items-center relative">
+      <div className="max-w-7xl  mx-auto px-4 md:px-0 flex justify-between items-center relative">
         {/* Logo */}
         <div className="text-heading md:text-2xl font-bold ">
           𝓡𝓪𝓴𝓲𝓫𝓾𝓵 𝓘𝓼𝓵𝓪𝓶 𝓔𝓶𝓸𝓷

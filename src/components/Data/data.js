@@ -124,3 +124,56 @@ export const personalInfo = {
     { label: "Availability", value: "Open for Projects" }
   ]
 };
+
+
+
+export const projects = [
+  {
+    title: "E-Commerce Platform",
+    description: "Full-stack MERN application with payment integration and admin dashboard",
+    image: "/api/placeholder/400/300",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    title: "Task Management App",
+    description: "Collaborative project management tool with real-time updates",
+    image: "/api/placeholder/400/300",
+    technologies: ["React", "Firebase", "Tailwind"],
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    title: "Weather Dashboard",
+    description: "Interactive weather app with location-based forecasts",
+    image: "/api/placeholder/400/300",
+    technologies: ["React", "API Integration", "Charts"],
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    title: "Portfolio Website",
+    description: "Responsive portfolio with 3D animations and modern design",
+    image: "/api/placeholder/400/300",
+    technologies: ["React", "Spline", "Framer Motion"],
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    title: "Blog Platform",
+    description: "Content management system with markdown support",
+    image: "/api/placeholder/400/300",
+    technologies: ["Next.js", "Prisma", "PostgreSQL"],
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+  {
+    title: "Chat Application",
+    description: "Real-time messaging app with file sharing capabilities",
+    image: "/api/placeholder/400/300",
+    technologies: ["React", "Socket.io", "Express"],
+    liveUrl: "#",
+    githubUrl: "#"
+  }
+];

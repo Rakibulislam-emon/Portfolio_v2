@@ -6,7 +6,7 @@ import SkillsSection from "./SkillsSection";
 
 const AboutMe = () => {
   return (
-    <div className="min-h-screen py-20 px-4 overflow-hidden">
+    <div className="min-h-screen py-20 px-4 overflow-hidden ">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
 
