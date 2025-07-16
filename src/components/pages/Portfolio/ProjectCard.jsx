@@ -4,57 +4,114 @@ import { ExternalLink, Github } from "lucide-react";
 export default function ProjectCard({ project, side, variant = "sidebar" }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  if (variant === "grid") {
+  if (variant === "mobile-featured") {
     return (
       <div
-        className="group relative p-6 rounded-2xl transition-all duration-700 hover:scale-110 cursor-pointer overflow-hidden"
+        className="group relative p-6 rounded-2xl transition-all duration-500 cursor-pointer overflow-hidden"
         style={{
           backgroundColor: isHovered 
             ? "rgba(242, 92, 117, 0.2)" 
+            : "rgba(255, 255, 255, 0.1)",
+          border: isHovered 
+            ? "2px solid var(--color-accent)" 
+            : "1px solid rgba(255, 255, 255, 0.2)",
+          backdropFilter: "blur(20px)",
+          boxShadow: isHovered 
+            ? "0 20px 40px rgba(242, 92, 117, 0.3)" 
+            : "0 8px 32px rgba(0, 0, 0, 0.2)"
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl mb-4 overflow-hidden">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        </div>
+        
+        <h3 className="text-xl font-bold mb-3" style={{ color: "var(--color-heading)" }}>
+          {project.title}
+        </h3>
+        
+        <p className="text-sm opacity-80 mb-4 line-clamp-3">
+          {project.description}
+        </p>
+        
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.technologies.slice(0, 4).map((tech, index) => (
+            <span 
+              key={index}
+              className="text-xs px-3 py-1 rounded-full"
+              style={{ 
+                backgroundColor: "var(--color-accent)", 
+                color: "white" 
+              }}
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+        
+        <div className="flex gap-4">
+          <button className="flex items-center gap-2 text-sm hover:scale-110 transition-transform">
+            <ExternalLink size={16} style={{ color: "var(--color-accent)" }} />
+            <span style={{ color: "var(--color-accent)" }}>Live Demo</span>
+          </button>
+          <button className="flex items-center gap-2 text-sm hover:scale-110 transition-transform">
+            <Github size={16} style={{ color: "var(--color-accent)" }} />
+            <span style={{ color: "var(--color-accent)" }}>Source Code</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (variant === "list") {
+    return (
+      <div
+        className="group relative p-6 rounded-2xl transition-all duration-500 cursor-pointer overflow-hidden flex gap-6"
+        style={{
+          backgroundColor: isHovered 
+            ? "rgba(242, 92, 117, 0.15)" 
             : "rgba(255, 255, 255, 0.08)",
           border: isHovered 
             ? "2px solid var(--color-accent)" 
             : "1px solid rgba(255, 255, 255, 0.15)",
           backdropFilter: "blur(20px)",
           boxShadow: isHovered 
-            ? "0 25px 50px rgba(242, 92, 117, 0.4), 0 0 30px rgba(242, 92, 117, 0.2)" 
-            : "0 8px 32px rgba(0, 0, 0, 0.3)"
+            ? "0 20px 40px rgba(242, 92, 117, 0.3)" 
+            : "0 8px 32px rgba(0, 0, 0, 0.2)"
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+        <div className="w-48 aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl overflow-hidden flex-shrink-0">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        </div>
         
-        <div className="relative z-10">
-          <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl mb-4 overflow-hidden">
-            <img 
-              src={project.image} 
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125"
-            />
-          </div>
-          
-          <h3 className="text-xl font-bold mb-3 transition-all duration-300" style={{ 
-            color: "var(--color-heading)",
-            transform: isHovered ? "translateY(-2px)" : "translateY(0)"
-          }}>
+        <div className="flex-1">
+          <h3 className="text-2xl font-bold mb-3" style={{ color: "var(--color-heading)" }}>
             {project.title}
           </h3>
           
-          <p className="text-sm opacity-80 mb-4 line-clamp-2 transition-opacity duration-300">
+          <p className="text-base opacity-80 mb-4">
             {project.description}
           </p>
           
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.technologies.slice(0, 3).map((tech, index) => (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.technologies.map((tech, index) => (
               <span 
                 key={index}
-                className="text-xs px-3 py-1 rounded-full transition-all duration-300 hover:scale-110"
+                className="text-sm px-3 py-1 rounded-full"
                 style={{ 
                   backgroundColor: "var(--color-accent)", 
-                  color: "white",
-                  boxShadow: isHovered ? "0 4px 12px rgba(242, 92, 117, 0.3)" : "none"
+                  color: "white" 
                 }}
               >
                 {tech}
@@ -63,13 +120,13 @@ export default function ProjectCard({ project, side, variant = "sidebar" }) {
           </div>
           
           <div className="flex gap-4">
-            <button className="flex items-center gap-2 text-sm hover:scale-110 transition-all duration-300 group/btn">
-              <ExternalLink size={16} style={{ color: "var(--color-accent)" }} />
-              <span style={{ color: "var(--color-accent)" }} className="group-hover/btn:underline">Live</span>
+            <button className="flex items-center gap-2 text-base hover:scale-110 transition-transform">
+              <ExternalLink size={18} style={{ color: "var(--color-accent)" }} />
+              <span style={{ color: "var(--color-accent)" }}>Live Demo</span>
             </button>
-            <button className="flex items-center gap-2 text-sm hover:scale-110 transition-all duration-300 group/btn">
-              <Github size={16} style={{ color: "var(--color-accent)" }} />
-              <span style={{ color: "var(--color-accent)" }} className="group-hover/btn:underline">Code</span>
+            <button className="flex items-center gap-2 text-base hover:scale-110 transition-transform">
+              <Github size={18} style={{ color: "var(--color-accent)" }} />
+              <span style={{ color: "var(--color-accent)" }}>Source Code</span>
             </button>
           </div>
         </div>
@@ -77,22 +134,87 @@ export default function ProjectCard({ project, side, variant = "sidebar" }) {
     );
   }
 
+  if (variant === "grid") {
+    return (
+      <div
+        className="group relative p-4 md:p-6 rounded-2xl transition-all duration-500 hover:scale-105 cursor-pointer"
+        style={{
+          backgroundColor: isHovered 
+            ? "rgba(242, 92, 117, 0.15)" 
+            : "rgba(255, 255, 255, 0.1)",
+          border: isHovered 
+            ? "2px solid var(--color-accent)" 
+            : "1px solid rgba(255, 255, 255, 0.2)",
+          backdropFilter: "blur(10px)",
+          boxShadow: isHovered 
+            ? "0 20px 40px rgba(242, 92, 117, 0.3)" 
+            : "none"
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg mb-4 overflow-hidden">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+        </div>
+        
+        <h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: "var(--color-heading)" }}>
+          {project.title}
+        </h3>
+        
+        <p className="text-sm opacity-80 mb-4 line-clamp-2">
+          {project.description}
+        </p>
+        
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.technologies.slice(0, 3).map((tech, index) => (
+            <span 
+              key={index}
+              className="text-xs px-2 py-1 rounded-full"
+              style={{ 
+                backgroundColor: "var(--color-accent)", 
+                color: "white" 
+              }}
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+        
+        <div className="flex gap-3">
+          <button className="flex items-center gap-2 text-sm hover:scale-110 transition-transform">
+            <ExternalLink size={16} style={{ color: "var(--color-accent)" }} />
+            <span style={{ color: "var(--color-accent)" }}>Live</span>
+          </button>
+          <button className="flex items-center gap-2 text-sm hover:scale-110 transition-transform">
+            <Github size={16} style={{ color: "var(--color-accent)" }} />
+            <span style={{ color: "var(--color-accent)" }}>Code</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Sidebar variant (default)
   return (
     <div
-      className={`group relative p-3 rounded-xl transition-all duration-500 hover:scale-110 cursor-pointer overflow-hidden ${
-        side === "left" ? "hover:rotate-3" : "hover:-rotate-3"
+      className={`group relative p-3 md:p-4 rounded-xl transition-all duration-500 hover:scale-105 cursor-pointer ${
+        side === "left" ? "hover:rotate-2" : "hover:-rotate-2"
       }`}
       style={{
         backgroundColor: isHovered 
-          ? "rgba(242, 92, 117, 0.2)" 
-          : "rgba(255, 255, 255, 0.08)",
+          ? "rgba(242, 92, 117, 0.15)" 
+          : "rgba(255, 255, 255, 0.1)",
         border: isHovered 
           ? "2px solid var(--color-accent)" 
-          : "1px solid rgba(255, 255, 255, 0.15)",
-        backdropFilter: "blur(20px)",
+          : "1px solid rgba(255, 255, 255, 0.2)",
+        backdropFilter: "blur(15px)",
         boxShadow: isHovered 
-          ? "0 20px 40px rgba(242, 92, 117, 0.4)" 
-          : "0 8px 25px rgba(0, 0, 0, 0.2)"
+          ? "0 15px 30px rgba(242, 92, 117, 0.3)" 
+          : "none"
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -101,13 +223,11 @@ export default function ProjectCard({ project, side, variant = "sidebar" }) {
         <img 
           src={project.image} 
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-120"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
       </div>
       
-      <h3 className="text-base font-bold mb-2 transition-colors duration-300" style={{ 
-        color: isHovered ? "var(--color-accent)" : "var(--color-heading)" 
-      }}>
+      <h3 className="text-base md:text-lg font-bold mb-2" style={{ color: "var(--color-heading)" }}>
         {project.title}
       </h3>
       
@@ -119,11 +239,10 @@ export default function ProjectCard({ project, side, variant = "sidebar" }) {
         {project.technologies.slice(0, 2).map((tech, index) => (
           <span 
             key={index}
-            className="text-xs px-2 py-1 rounded-full transition-all duration-300"
+            className="text-xs px-2 py-1 rounded-full"
             style={{ 
               backgroundColor: "var(--color-accent)", 
-              color: "white",
-              transform: isHovered ? "scale(1.05)" : "scale(1)"
+              color: "white" 
             }}
           >
             {tech}
@@ -131,11 +250,11 @@ export default function ProjectCard({ project, side, variant = "sidebar" }) {
         ))}
       </div>
       
-      <div className="flex gap-3 justify-center">
-        <button className="flex items-center gap-1 text-xs hover:scale-125 transition-transform duration-300">
+      <div className="flex gap-2">
+        <button className="flex items-center gap-1 text-xs hover:scale-110 transition-transform">
           <ExternalLink size={12} style={{ color: "var(--color-accent)" }} />
         </button>
-        <button className="flex items-center gap-1 text-xs hover:scale-125 transition-transform duration-300">
+        <button className="flex items-center gap-1 text-xs hover:scale-110 transition-transform">
           <Github size={12} style={{ color: "var(--color-accent)" }} />
         </button>
       </div>

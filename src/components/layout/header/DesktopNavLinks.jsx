@@ -5,7 +5,7 @@ export default function DesktopNavLinks() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/portfolio", label: "Portfolio" },
-    { href: "/resume", label: "Resume" },
+    { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
   ];
 

@@ -86,3 +86,46 @@
     border: 2px solid var(--color-heading);
   }
 }
+
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes animate-fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes animate-fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-left {
+  animation: animate-fade-in-left 0.8s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: animate-fade-in-right 0.8s ease-out forwards;
+}

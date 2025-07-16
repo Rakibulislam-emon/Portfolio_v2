@@ -6,7 +6,7 @@ export default function MobileNavLinks() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/portfolio", label: "Portfolio" },
-    { href: "/resume", label: "Resume" },
+    { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
   ];
 
