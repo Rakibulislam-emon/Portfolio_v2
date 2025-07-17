@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
 import { personalInfo } from '../../Data/data'
 
 export default function Introduction() {
@@ -45,7 +46,15 @@ export default function Introduction() {
                 className="text-3xl md:text-4xl font-bold mb-6"
                 style={{ color: "var(--color-heading)" }}
               >
-                {personalInfo.title}
+                <Typewriter
+                  words={['Frontend MERN Stack Developer', 'Passionate Frontend Developer', 'Full Stack Developer', 'React Specialist']}
+                  loop={0}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={2000}
+                />
               </h2>
               <p className="text-xl leading-relaxed mb-6 opacity-90">
                 {personalInfo.description}
