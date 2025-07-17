@@ -15,7 +15,6 @@ import {
   Settings,
   Star,
   Zap,
-  Award,
 } from "lucide-react";
 
 export const skills = [
@@ -39,50 +38,54 @@ export const experiences = [
   {
     title: "Frontend Developer (Personal Projects)",
     company: "Self-Driven",
-    period: "2023 - Present",
-    description: "Building responsive web applications using React.js, Tailwind CSS, and JavaScript. Focused on user-friendly design, clean UI, and reusable components.",
+    period: "Nov 2023 – Present",
+    description:
+      "Building responsive, user-friendly web applications using React.js, Tailwind CSS, and JavaScript. Focused on clean design, reusable components, and performance best practices.",
     icon: Code,
     achievements: [
-      "Built 15+ responsive web applications",
-      "Implemented modern UI/UX patterns",
-      "Optimized performance by 40%"
-    ]
+      "Developed 10+ responsive web projects",
+      "Implemented modern UI/UX design patterns",
+      "Improved site performance using optimization techniques",
+    ],
   },
   {
     title: "Open Source Contributor",
     company: "GitHub",
-    period: "2024 - Present",
-    description: "Contributing to open-source projects by fixing issues, adding features, and improving documentation for JavaScript and React repositories.",
+    period: "2024 – Present",
+    description:
+      "Contributing to open-source JavaScript and React projects by fixing bugs, adding small features, and improving documentation.",
     icon: Rocket,
     achievements: [
-      "50+ contributions across repositories",
-      "Maintained 3 open source projects",
-      "Helped 100+ developers"
-    ]
+      "Made 10+ contributions to repositories",
+      "Participated in issue discussions and pull requests",
+      "Collaborated with developers globally",
+    ],
   },
   {
-    title: "Freelance Web Developer",
+    title: "Freelance Frontend Developer",
     company: "Freelance",
-    period: "2024 - Present",
-    description: "Designed and developed small websites and landing pages for local clients, using modern frontend technologies to deliver clean and functional interfaces.",
+    period: "2024 – Present",
+    description:
+      "Designed and built modern landing pages and small websites for local clients, ensuring clean, functional, and responsive designs.",
     icon: Star,
     achievements: [
-      "Delivered 20+ client projects",
-      "100% client satisfaction rate",
-      "Average project completion: 2 weeks"
-    ]
+      "Completed 5+ freelance client projects",
+      "Maintained high client satisfaction and clear communication",
+      "Delivered projects on time and within scope",
+    ],
   },
   {
     title: "Web Development Student",
-    company: "Online Bootcamp / Self-Learning",
-    period: "2023 - 2024",
-    description: "Completed multiple courses and hands-on projects covering JavaScript, React, and modern web development best practices.",
+    company: "Self-Learning and online bootcamps",
+    period: "2023 – 2024",
+    description:
+      "Completed a structured web development bootcamp and self-learning journey, building projects with React, JavaScript, and modern frontend tools.",
     icon: Heart,
     achievements: [
-      "Completed 10+ certification courses",
-      "Built 30+ practice projects",
-      "Mastered modern development stack"
-    ]
+      "Finished 10+ focused courses",
+      "Built 20+ practice projects and clones",
+      "Proficient with the MERN stack basics",
+    ],
   },
 ];
 
@@ -91,89 +94,163 @@ export const education = [
     degree: "Bachelor of Arts (Honours) in English",
     institution: "New Model Degree College (NMDC)",
     year: "2024 - Present",
-    description: "Currently pursuing first year Honours in English, focusing on literature, communication, and academic writing.",
+    description:
+      "Currently pursuing first year Honours in English, focusing on literature, communication, and academic writing.",
     status: "In Progress",
-    gpa: "3.8/4.0"
+    gpa: "3.8/4.0",
   },
   {
     degree: "Higher Secondary Certificate (HSC)",
     institution: "Alhaz Mockbul Hussain College",
     year: "2023",
-    description: "Completed HSC with a focus on Humanities, including English and Social Studies.",
+    description:
+      "Completed HSC with a focus on Humanities, including English and Social Studies.",
     status: "Completed",
-    gpa: "4.5/5.0"
+    gpa: "4.5/5.0",
   },
   {
     degree: "Secondary School Certificate (SSC)",
     institution: "New Model Multilateral High School",
     year: "2021",
-    description: "Completed SSC with a concentration in Humanities and strong results in English and general subjects.",
+    description:
+      "Completed SSC with a concentration in Humanities and strong results in English and general subjects.",
     status: "Completed",
-    gpa: "4.8/5.0"
+    gpa: "4.8/5.0",
   },
 ];
 
 export const personalInfo = {
-  title: "Passionate Frontend Developer",
-  description: "I'm a dedicated frontend developer with a passion for creating beautiful, functional, and user-friendly web applications. With expertise in modern JavaScript frameworks and a keen eye for design, I transform ideas into digital experiences.",
-  additionalInfo: "Currently pursuing my Bachelor's in English while building my career in web development. I believe in continuous learning and staying updated with the latest technologies to deliver cutting-edge solutions.",
+  title: "Aspiring Frontend Developer",
+  description:
+    "I'm a dedicated frontend developer focused on building clean, responsive, and user-friendly web applications. With solid skills in modern JavaScript frameworks and an eye for detail, I enjoy turning ideas into engaging digital products.",
+  additionalInfo:
+    "Currently pursuing my Bachelor's in English while actively developing my skills in web development. I believe in continuous learning and keep up with the latest technologies to deliver quality work.",
   highlights: [
-    { label: "Experience", value: "2+ Years in Web Development" },
-    { label: "Focus", value: "Frontend & UI/UX Design" },
+    { label: "Experience", value: "1+ Year of Hands-On Practice" },
+    { label: "Focus", value: "Frontend Development & UI Implementation" },
     { label: "Location", value: "Bangladesh" },
-    { label: "Availability", value: "Open for Projects" }
-  ]
+    { label: "Availability", value: "Open to Freelance & Collaboration" },
+  ],
 };
 
-
+export const featuredProjects = [
+  {
+    title: "Flex Fitness",
+    description:
+      "A fitness website for booking gym classes, managing user profiles, and processing secure payments via Stripe.",
+    image: "https://i.ibb.co/8LDMJ6XW/fit-gym-7bce5-web-app.png",
+    technologies: ["React", "Firebase", "Tailwind CSS", "Stripe API"],
+    liveUrl: "https://fit-gym-7bce5.web.app/",
+    githubUrl:
+      "https://github.com/Rakibulislam-emon/Flex-Fitness?tab=readme-ov-file",
+  },
+  {
+    title: "Nest Grocery Shop",
+    description:
+      "A full-stack organic grocery e-commerce platform with advanced search, secure payments via Stripe, and user auth with Clerk. Built with React, Express, and MongoDB.",
+    image: "https://i.ibb.co/Q7xPHdcg/nest-client-henna-vercel-app-4.png",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Clerk"],
+    liveUrl: "https://nest-client-henna.vercel.app/",
+    githubUrl: "https://github.com/Rakibulislam-emon/nest_client",
+  },
+];
+export const recentProjects = [
+{
+  title: "LinkVault Chrome Extension",
+  description:
+    "A smart Chrome extension to save, organize, and manage your important web links with quick add, search, filter, import/export, and clipboard features.",
+  image: "https://i.ibb.co/2m5cbpS/Screenshot-2025-07-18-040555.png", 
+  // Replace this URL with your actual screenshot path or local import
+  technologies: ["JavaScript", "Chrome Extension API", "React"],
+  liveUrl: "#", // No public live URL yet
+  githubUrl: "https://github.com/Rakibulislam-emon/linkvault-extension"
+}
+,
+  {
+    title: "GitHub Repo Remover",
+    description:
+      "A modern full-stack app that lets developers securely manage and delete GitHub repositories with OAuth login, batch operations, and a clean, responsive UI.",
+    image: "https://i.ibb.co/Kjf0NcMH/github-repo-remover-vercel-app-1.png",
+    technologies: ["React", "Node.js", "Express", "GitHub OAuth"],
+    liveUrl: "https://github-repo-remover.vercel.app",
+    githubUrl: "https://github.com/Rakibulislam-emon/github_repo_remover",
+  },
+];
 
 export const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "Full-stack MERN application with payment integration and admin dashboard",
-    image: "/api/placeholder/400/300",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "Organic Grocery Shop",
+    description:
+      "An online grocery shop built with React and Tailwind CSS. Users can browse and buy organic food items easily.",
+    image: "https://i.ibb.co/rKnf6KZk/organicgrocerystores-netlify-app.png",
+    technologies: ["React", "Tailwind CSS"],
+    liveUrl: "https://organicgrocerystores.netlify.app/",
+    githubUrl:
+      "https://github.com/Rakibulislam-emon/Organic_Grocery_Shop_Client",
   },
+  
   {
-    title: "Task Management App",
-    description: "Collaborative project management tool with real-time updates",
-    image: "/api/placeholder/400/300",
-    technologies: ["React", "Firebase", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "Flex Fitness",
+    description:
+      "A fitness website for booking gym classes, managing user profiles, and processing secure payments via Stripe.",
+    image: "https://i.ibb.co/8LDMJ6XW/fit-gym-7bce5-web-app.png",
+    technologies: ["React", "Firebase", "Tailwind CSS", "Stripe API"],
+    liveUrl: "https://fit-gym-7bce5.web.app/",
+    githubUrl:
+      "https://github.com/Rakibulislam-emon/Flex-Fitness?tab=readme-ov-file",
   },
+ 
   {
-    title: "Weather Dashboard",
-    description: "Interactive weather app with location-based forecasts",
-    image: "/api/placeholder/400/300",
-    technologies: ["React", "API Integration", "Charts"],
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "Nest Grocery Shop",
+    description:
+      "A full-stack organic grocery e-commerce platform with advanced search, secure payments via Stripe, and user auth with Clerk. Built with React, Express, and MongoDB.",
+    image: "https://i.ibb.co/Q7xPHdcg/nest-client-henna-vercel-app-4.png",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Clerk"],
+    liveUrl: "https://nest-client-henna.vercel.app/",
+    githubUrl: "https://github.com/Rakibulislam-emon/nest_client",
   },
-  {
-    title: "Portfolio Website",
-    description: "Responsive portfolio with 3D animations and modern design",
-    image: "/api/placeholder/400/300",
-    technologies: ["React", "Spline", "Framer Motion"],
-    liveUrl: "#",
-    githubUrl: "#"
+   {
+    title: "GitHub Repo Remover",
+    description:
+      "A modern full-stack app that lets developers securely manage and delete GitHub repositories with OAuth login, batch operations, and a clean, responsive UI.",
+    image: "https://i.ibb.co/Kjf0NcMH/github-repo-remover-vercel-app-1.png",
+    technologies: ["React", "Node.js", "Express", "GitHub OAuth"],
+    liveUrl: "https://github-repo-remover.vercel.app",
+    githubUrl: "https://github.com/Rakibulislam-emon/github_repo_remover",
   },
-  {
-    title: "Blog Platform",
-    description: "Content management system with markdown support",
-    image: "/api/placeholder/400/300",
-    technologies: ["Next.js", "Prisma", "PostgreSQL"],
-    liveUrl: "#",
-    githubUrl: "#"
-  },
-  {
-    title: "Chat Application",
-    description: "Real-time messaging app with file sharing capabilities",
-    image: "/api/placeholder/400/300",
-    technologies: ["React", "Socket.io", "Express"],
-    liveUrl: "#",
-    githubUrl: "#"
-  }
 ];
+
+// ===== CODE SNIPPET DATA =====
+export const codeSnippetData = [
+  { text: "// Hello, I'm Rakibul Islam Emon 👋", color: "#10B981" },
+  { text: "const developer = {", color: "#3B82F6" },
+  { text: "  name: 'Rakibul Islam Emon',", color: "#d4d4d4" },
+  { text: "  role: 'Frontend MERN Stack Developer',", color: "#d4d4d4" },
+  {
+    text: "  expertise: ['React', 'Next.js', 'Node.js', 'MongoDB'],",
+    color: "#d4d4d4",
+  },
+  {
+    text: "  passion: 'Building elegant solutions to complex problems',",
+    color: "#d4d4d4",
+  },
+  { text: "", color: "#d4d4d4" },
+  { text: "  contact() {", color: "#3B82F6" },
+  { text: "    return {", color: "#3B82F6" },
+  { text: "      email: 'rakibul@example.com',", color: "#d4d4d4" },
+  { text: "      github: 'github.com/Rakibulislam-emon',", color: "#d4d4d4" },
+  { text: "      linkedin: 'linkedin.com/in/rakibul-islam-emon'", color: "#d4d4d4" },
+  { text: "    };", color: "#3B82F6" },
+  { text: "  }", color: "#3B82F6" },
+  { text: "};", color: "#3B82F6" },
+  { text: "", color: "#d4d4d4" },
+  {
+    text: "// Let's create something extraordinary together",
+    color: "#10B981",
+  },
+];
+
+
+export const contactInfo =[
+  
+]

@@ -7,43 +7,10 @@ import TitleBar from "./TitleBar";
 import CodeLines from "./CodeLines";
 import LineNumbers from "./LineNumbers";
 import StatusBar from "./StatusBar";
-// import TitleBar from "./TitleBar";
-// import LineNumbers from "./LineNumbers";
-// import CodeLines from "./CodeLines";
-// import StatusBar from "./StatusBar";
+import { codeSnippetData } from "../../../Data/data";
 
 export default function CodeSnippet() {
-  const codeLines = useMemo(
-    () => [
-      { text: "// Hello, I'm Rakibul Islam Emon 👋", color: "#10B981" },
-      { text: "const developer = {", color: "#3B82F6" },
-      { text: "  name: 'Rakibul Islam Emon',", color: "#d4d4d4" },
-      { text: "  role: 'Frontend MERN Stack Developer',", color: "#d4d4d4" },
-      {
-        text: "  expertise: ['React', 'Next.js', 'Node.js', 'MongoDB'],",
-        color: "#d4d4d4",
-      },
-      {
-        text: "  passion: 'Building elegant solutions to complex problems',",
-        color: "#d4d4d4",
-      },
-      { text: "", color: "#d4d4d4" },
-      { text: "  contact() {", color: "#3B82F6" },
-      { text: "    return {", color: "#3B82F6" },
-      { text: "      email: 'rakibul@example.com',", color: "#d4d4d4" },
-      { text: "      github: 'github.com/rakibul',", color: "#d4d4d4" },
-      { text: "      linkedin: 'linkedin.com/in/rakibul'", color: "#d4d4d4" },
-      { text: "    };", color: "#3B82F6" },
-      { text: "  }", color: "#3B82F6" },
-      { text: "};", color: "#3B82F6" },
-      { text: "", color: "#d4d4d4" },
-      {
-        text: "// Let's create something extraordinary together",
-        color: "#10B981",
-      },
-    ],
-    []
-  );
+  const codeLines = useMemo(() => codeSnippetData, []);
 
   const [currentLine, setCurrentLine] = useState(0);
 

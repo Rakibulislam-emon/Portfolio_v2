@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { projects } from "../../Data/data.js";
+import { featuredProjects, projects, recentProjects } from "../../Data/data.js";
 import SplineScene from "../../SplineScene";
 import PortfolioAllProjects from "./PortfolioAllProjects.jsx";
 import ProjectCard from "./ProjectCard";
@@ -45,7 +45,7 @@ export default function Portfolio() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-8">
-            {projects.slice(0, 2).map((project, index) => (
+            {featuredProjects.map((project, index) => (
               <ProjectCard key={index} project={project} side="left" />
             ))}
           </div>
@@ -67,7 +67,7 @@ export default function Portfolio() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-8">
-            {projects.slice(2, 4).map((project, index) => (
+            {recentProjects.map((project, index) => (
               <ProjectCard key={index} project={project} side="right" />
             ))}
           </div>

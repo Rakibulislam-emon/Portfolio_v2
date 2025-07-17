@@ -8,7 +8,7 @@ export default function Introduction() {
         <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-text">
           <span className="text-heading">
             <Typewriter
-              words={['MERN Stack', 'Frontend', 'Full Stack', 'React']}
+              words={['MERN Stack', 'Frontend', 'React']}
               loop={0}
               cursor
               cursorStyle="|"

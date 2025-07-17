@@ -1,28 +1,71 @@
+import { motion } from "framer-motion";
+
 const CallToActionSection = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
-    <section className="text-center py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl"></div>
-      <div className="relative z-10">
-        <h3 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: "var(--color-heading)" }}>
+    <motion.section 
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+      className="text-center py-20"
+    >
+      <div className="max-w-4xl mx-auto">
+        <motion.h3 
+          variants={itemVariants}
+          className="text-4xl md:text-5xl font-bold mb-6" 
+          style={{ color: "var(--color-heading)" }}
+        >
           Ready to Build the Future?
-        </h3>
-        <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+        </motion.h3>
+        
+        <motion.p 
+          variants={itemVariants}
+          className="text-xl mb-8 opacity-90"
+        >
           Let's collaborate and create something extraordinary together. 
           With robotic precision and human creativity, we'll bring your vision to life.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button 
-            className="px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl"
+        </motion.p>
+        
+        <motion.div 
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:opacity-90"
             style={{
               backgroundColor: "var(--color-accent)",
-              color: "white",
-              boxShadow: "0 10px 30px rgba(242, 92, 117, 0.3)"
+              color: "var(--color-background)"
             }}
           >
             Start a Project
-          </button>
-          <button 
-            className="px-8 py-4 rounded-full font-bold text-lg border-2 transition-all duration-300 hover:scale-110"
+          </motion.button>
+          
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 rounded-lg font-semibold text-lg border transition-all duration-300 hover:bg-white hover:bg-opacity-5"
             style={{
               borderColor: "var(--color-accent)",
               color: "var(--color-accent)",
@@ -30,11 +73,12 @@ const CallToActionSection = () => {
             }}
           >
             View Portfolio
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
 export default CallToActionSection;
+

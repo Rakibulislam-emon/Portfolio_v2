@@ -1,123 +1,126 @@
-import React, { useState } from 'react'
-import { experiences } from '../../Data/data';
+import { motion } from "framer-motion";
+import { experiences } from "../../Data/data";
 
 export default function Experience() {
-  const [hoveredExperience, setHoveredExperience] = useState(null);
+  // Parent container for staggered reveal
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3, // delay between each card
+      },
+    },
+  };
+
+  // Each card — slides from left OR right based on index
+  const cardVariants = {
+    hidden: (slideFromLeft) => ({
+      opacity: 0,
+      x: slideFromLeft ? -100 : 100,
+    }),
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
 
   return (
-    <section className="mb-32">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Professional Journey
-            </h2>
-            <p className="text-xl opacity-80">
-              Building the future, one project at a time
-            </p>
-          </div>
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0 }}
+      variants={containerVariants}
+      className="mb-32"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 "
+        style={{ color: "var(--color-heading)" }}>
+          Professional Journey
+        </h2>
+        <p className="text-xl text-gray-400">
+          Building the future, one project at a time
+        </p>
+      </motion.div>
 
-          <div className="relative">
-            <div className="absolute left-10 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-purple-500 to-pink-500 opacity-30"></div>
+      <div className="space-y-8">
+        {experiences.map((exp, index) => {
+          const Icon = exp.icon;
+          const slideFromLeft = index % 2 === 0; // one left, one right
 
-            <div className="space-y-12 ml-20">
-              {experiences.map((exp, index) => {
-                const Icon = exp.icon;
-                return (
-                  <div
-                    key={index}
-                    className="group relative p-8 rounded-2xl transition-all duration-500 hover:scale-[1.02] hover:rotate-1 cursor-pointer"
-                    style={{
-                      backgroundColor: hoveredExperience === index 
-                        ? "rgba(242, 92, 117, 0.15)" 
-                        : "rgba(255, 255, 255, 0.05)",
-                      border: hoveredExperience === index 
-                        ? "2px solid var(--color-accent)" 
-                        : "1px solid rgba(255, 255, 255, 0.1)",
-                      backdropFilter: "blur(10px)",
-                      boxShadow: hoveredExperience === index 
-                        ? "0 20px 40px rgba(242, 92, 117, 0.3)" 
-                        : "none"
-                    }}
-                    onMouseEnter={() => setHoveredExperience(index)}
-                    onMouseLeave={() => setHoveredExperience(null)}
-                  >
-                    <div
-                      className="absolute -left-28 top-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
-                      style={{
-                        backgroundColor: "var(--color-accent)",
-                        boxShadow: hoveredExperience === index 
-                          ? "0 0 30px var(--color-accent)" 
-                          : "0 0 20px var(--color-accent)",
-                        transform: hoveredExperience === index ? "scale(1.1)" : "scale(1)"
-                      }}
-                    >
-                      <Icon size={24} color="white" />
-                    </div>
-
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
-                      <div className="flex-1">
-                        <h3
-                          className="text-2xl font-bold mb-2 transition-all duration-300"
-                          style={{ 
-                            color: "var(--color-heading)",
-                            transform: hoveredExperience === index ? "scale(1.05)" : "scale(1)"
-                          }}
-                        >
-                          {exp.title}
-                        </h3>
-                        <h4
-                          className="text-xl font-semibold mb-4"
-                          style={{ color: "var(--color-accent)" }}
-                        >
-                          {exp.company}
-                        </h4>
-                      </div>
-                      <div
-                        className="text-sm font-bold px-4 py-2 rounded-full transition-all duration-300"
-                        style={{
-                          backgroundColor: "var(--color-accent)",
-                          color: "white",
-                          transform: hoveredExperience === index ? "scale(1.1)" : "scale(1)",
-                          boxShadow: hoveredExperience === index 
-                            ? "0 5px 15px rgba(242, 92, 117, 0.4)" 
-                            : "none"
-                        }}
-                      >
-                        {exp.period}
-                      </div>
-                    </div>
-
-                    <p className="text-lg leading-relaxed mb-6 opacity-90">
-                      {exp.description}
-                    </p>
-
-                    <div className="space-y-2">
-                      <h5
-                        className="font-semibold mb-3"
-                        style={{ color: "var(--color-heading)" }}
-                      >
-                        Key Achievements:
-                      </h5>
-                      {exp.achievements.map((achievement, i) => (
-                        <div key={i} className="flex items-center gap-3">
-                          <div
-                            className="w-2 h-2 rounded-full transition-all duration-300"
-                            style={{ 
-                              backgroundColor: "var(--color-accent)",
-                              boxShadow: hoveredExperience === index 
-                                ? "0 0 10px var(--color-accent)" 
-                                : "none",
-                              transform: hoveredExperience === index ? "scale(1.5)" : "scale(1)"
-                            }}
-                          />
-                          <span className="opacity-80">{achievement}</span>
-                        </div>
-                      ))}
-                    </div>
+          return (
+            <motion.div
+              key={index}
+              custom={slideFromLeft}
+              variants={cardVariants}
+              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              className="p-8 rounded-xl border "
+              style={{
+              backgroundColor: "rgba(255, 255, 255, 0.03)",
+              borderColor: "rgba(255, 255, 255, 0.15)"
+            }}
+            >
+              <div className="flex items-start gap-6">
+                <motion.div
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="flex-shrink-0"
+                >
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-gray-800">
+                    <Icon size={24} style={{ color: "var(--color-accent)" }} />
                   </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-  )
+                </motion.div>
+
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold mb-2 text-white">
+                    {exp.title}
+                  </h3>
+                  <h4 className="text-xl font-semibold mb-4 text-[var(--color-accent)]">
+                    {exp.company}
+                  </h4>
+                  <div className="text-sm font-medium px-3 py-1 rounded-full bg-gray-800 text-gray-300 inline-block mb-4">
+                    {exp.period}
+                  </div>
+
+                  <p className="text-lg leading-relaxed mb-6 text-gray-400">
+                    {exp.description}
+                  </p>
+
+                  <div className="space-y-2">
+                    <h5 className="font-semibold text-white mb-2">
+                      Key Achievements:
+                    </h5>
+                    {exp.achievements.map((achievement, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: slideFromLeft ? -20 : 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          delay: i * 0.1,
+                          duration: 0.4,
+                        }}
+                        className="flex items-center gap-3"
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
+                        <span className="text-gray-400">{achievement}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </motion.section>
+  );
 }
