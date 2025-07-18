@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import BlogHero from './BlogHero';
-import SearchAndFilter from './SearchAndFilter';
-import FeaturedPosts from './FeaturedPosts';
-import AllPosts from './AllPosts';
-import NewsletterSection from './NewsletterSection';
-import { blogPosts } from '../../Data/blogData';
+import BlogHero from '../components/pages/Blog/BlogHero';
+import SearchAndFilter from '../components/pages/Blog/SearchAndFilter';
+import FeaturedPosts from '../components/pages/Blog/FeaturedPosts';
+import AllPosts from '../components/pages/Blog/AllPosts';
+import NewsletterSection from '../components/pages/Blog/NewsletterSection';
+import { blogPosts } from '../components/Data/blogData';
 
 export default function Blog() {
   const [isVisible, setIsVisible] = useState(false);

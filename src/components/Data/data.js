@@ -1,9 +1,9 @@
 // ===== IMPORTS =====
-import image1 from "../../../public/projects_Images/img1.png";
-import image2 from "../../../public/projects_Images/img2.png";
-import image3 from "../../../public/projects_Images/img3.png";
-import image4 from "../../../public/projects_Images/img4.png";
-import image5 from "../../../public/projects_Images/img5.png";
+import image1 from "../../assets/img1.png";
+ import image2 from "../../assets/img2.png";
+ import image3 from "../../assets/img3.png";
+ import image4 from "../../assets/img4.png";
+ import image5 from "../../assets/img5.png";
 
 import {
   Cloud,
