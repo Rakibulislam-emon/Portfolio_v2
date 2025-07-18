@@ -7,7 +7,7 @@ export default function ProjectCard({ project, side, variant = "sidebar" }) {
   if (variant === "grid") {
     return (
       <div
-        className="group relative p-4 md:p-6 rounded-2xl transition-all duration-300 hover:scale-105 cursor-pointer"
+        className="group relative p-4 md:p-6 rounded-2xl transition-all duration-300 cursor-pointer"
         style={{
           backgroundColor: isHovered 
             ? "rgba(242, 92, 117, 0.15)" 
@@ -24,7 +24,14 @@ export default function ProjectCard({ project, side, variant = "sidebar" }) {
           <img 
             src={project.image} 
             alt={project.title}
+            loading="lazy"
+            decoding="async"
+            width="400"
+            height="225"
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            onError={(e) => {
+              e.target.src = '/images/placeholder.jpg'; // Add fallback
+            }}
           />
         </div>
         
@@ -68,7 +75,7 @@ export default function ProjectCard({ project, side, variant = "sidebar" }) {
   // Sidebar variant (default)
   return (
   <div
-  className="group relative p-3 md:p-4 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer"
+  className="group relative p-3 md:p-4 rounded-xl transition-all duration-300 cursor-pointer"
   style={{
     backgroundColor: isHovered
       ? "rgba(242, 92, 117, 0.15)"
@@ -76,7 +83,7 @@ export default function ProjectCard({ project, side, variant = "sidebar" }) {
     border: isHovered
       ? "2px solid var(--color-accent)"
       : "1px solid rgba(255, 255, 255, 0.1)",
-    backdropFilter: "blur(15px)"
+    backdropFilter: "blur(10px)"
   }}
   onMouseEnter={() => setIsHovered(true)}
   onMouseLeave={() => setIsHovered(false)}
@@ -139,5 +146,8 @@ export default function ProjectCard({ project, side, variant = "sidebar" }) {
 
   );
 }
+
+
+
 
 

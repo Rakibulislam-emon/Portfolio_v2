@@ -2,7 +2,7 @@
 
 
 import React, { useEffect, useState, useMemo } from "react";
-import { Typewriter } from "react-simple-typewriter";
+// Remove: // Remove: import { Typewriter } from "react-simple-typewriter";
 import TitleBar from "./TitleBar";
 import CodeLines from "./CodeLines";
 import LineNumbers from "./LineNumbers";

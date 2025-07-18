@@ -1,39 +1,17 @@
-import { useState, useEffect } from "react";
-import { featuredProjects, projects, recentProjects } from "../../Data/data.js";
-import SplineScene from "../../SplineScene";
+import { featuredProjects, recentProjects } from "../../Data/data.js";
 import PortfolioAllProjects from "./PortfolioAllProjects.jsx";
 import ProjectCard from "./ProjectCard";
 
-// ✅ Custom hook to check if screen is sm or larger
-function useIsSmUp() {
-  const [isSmUp, setIsSmUp] = useState(false);
-
-  useEffect(() => {
-    const checkSize = () => setIsSmUp(window.innerWidth >= 640);
-    checkSize();
-    window.addEventListener("resize", checkSize);
-    return () => window.removeEventListener("resize", checkSize);
-  }, []);
-
-  return isSmUp;
-}
-
 export default function Portfolio() {
-  const isSmUp = useIsSmUp(); // ✅ Check if screen is sm or larger
-
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* ✅ Only render Spline if screen is sm and up */}
-      {isSmUp && (
-        <div className="absolute inset-0 z-0">
-          <SplineScene />
-        </div>
-      )}
+      {/* Simple gradient background instead of heavy animations */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/10 to-slate-900"></div>
 
-      {/* Portfolio Content Overlay */}
-      <div className="relative max-w-7xl mx-auto z-10 min-h-screen flex flex-col lg:flex-row pointer-events-none">
+      {/* Portfolio Content */}
+      <div className="relative max-w-7xl mx-auto z-10 min-h-screen flex flex-col lg:flex-row">
         {/* Left Side Projects */}
-        <div className="w-full lg:w-1/4 p-3 sm:p-6 flex flex-col justify-center space-y-4 sm:space-y-8 pointer-events-auto">
+        <div className="w-full lg:w-1/4 p-3 sm:p-6 flex flex-col justify-center space-y-4 sm:space-y-8">
           <div className="text-center mb-4 sm:mb-8">
             <h2
               className="text-xl sm:text-2xl font-bold mb-2"
@@ -51,11 +29,27 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Center - Robot Space */}
-        <div className="w-full lg:w-1/2 flex items-start justify-center pt-8 sm:pt-20 min-h-[200px] lg:min-h-0"></div>
+        {/* Center - Hero Section */}
+        <div className="w-full lg:w-1/2 flex flex-col items-center justify-center pt-8 sm:pt-20 px-6 text-center min-h-[400px] lg:min-h-0">
+          <div className="mb-8">
+            <h1 className="text-4xl sm:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              Portfolio
+            </h1>
+            <p className="text-lg sm:text-xl opacity-80 max-w-md">
+              Showcasing my journey through code, creativity, and innovation
+            </p>
+          </div>
+          
+          <div className="relative">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center backdrop-blur-sm border border-white/10">
+              <div className="text-4xl sm:text-5xl -rotate-50">🚀</div>
+            </div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 animate-ping"></div>
+          </div>
+        </div>
 
         {/* Right Side Projects */}
-        <div className="w-full lg:w-1/4 p-3 sm:p-6 flex flex-col justify-center space-y-4 sm:space-y-8 pointer-events-auto">
+        <div className="w-full lg:w-1/4 p-3 sm:p-6 flex flex-col justify-center space-y-4 sm:space-y-8">
           <div className="text-center mb-4 sm:mb-8">
             <h2
               className="text-xl sm:text-2xl font-bold mb-2"
