@@ -12,7 +12,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="min-h-screen py-20 px-4 overflow-hidden">
+    <div className="min-h-screen py-20 px-4 overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900/10 to-slate-900">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <section

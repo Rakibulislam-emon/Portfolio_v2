@@ -11,7 +11,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="relative py-12 bg-[rgb(20,25,30)]">
+    <footer className="relative py-12 bg-[var(--header-background)]">
       {/* Animated background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/4 w-32 h-32 bg-accent rounded-full blur-3xl animate-pulse"></div>

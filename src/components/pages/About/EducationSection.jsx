@@ -113,17 +113,7 @@ const EducationSection = () => {
                 {edu.description}
               </motion.p>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.6, duration: 0.4 }}
-                className="flex items-center gap-3 pt-4 border-t border-gray-700"
-              >
-                <Award size={18} style={{ color: "var(--color-accent)" }} />
-                <span className="text-sm font-medium" style={{ color: "var(--color-accent)" }}>
-                  GPA: {edu.gpa}
-                </span>
-              </motion.div>
+             
             </div>
           </motion.div>
         ))}
