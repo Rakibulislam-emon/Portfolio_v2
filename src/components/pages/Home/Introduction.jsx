@@ -1,7 +1,17 @@
 import { Typewriter } from "react-simple-typewriter";
 import Button from "../../common/Button";
+import { Link } from "react-router";
 
 export default function Introduction() {
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Rakibul_Islam_Emon_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="lg:w-1/2 flex  items-center justify-center p-8 lg:p-16">
       <div className="max-w-xl">
@@ -25,8 +35,8 @@ export default function Introduction() {
         </p>
 
         <div className="flex gap-4">
-          <Button>Download Resume</Button>
-          <Button>Get In Touch</Button>
+          <Button onClick={handleDownloadResume}>Download Resume</Button>
+          <Link to="/contact"><Button>Get In Touch</Button></Link>
         </div>
       </div>
     </div>

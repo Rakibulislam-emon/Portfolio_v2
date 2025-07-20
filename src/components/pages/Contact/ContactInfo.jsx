@@ -1,32 +1,31 @@
-import React from 'react';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactInfo() {
   const contactDetails = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'rakibul@example.com',
-      href: 'mailto:rakibul@example.com'
+      label: "Email",
+      value: " rakibulislamemon60.com",
+      href: "mailto:rakibulislamemon60@gmail.com",
     },
     {
       icon: Phone,
-      label: 'Phone',
-      value: '+880 123 456 789',
-      href: 'tel:+880123456789'
+      label: "Phone",
+      value: "+880 197 923 7056",
+      href: "tel:+8801979237056",
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'Dhaka, Bangladesh',
-      href: null
+      label: "Location",
+      value: "Dhaka, Bangladesh",
+      href: null,
     },
     {
       icon: Clock,
-      label: 'Response Time',
-      value: 'Within 24 hours',
-      href: null
-    }
+      label: "Response Time",
+      value: "Within 24 hours",
+      href: null,
+    },
   ];
 
   return (
@@ -35,13 +34,16 @@ export default function ContactInfo() {
       style={{
         backgroundColor: "rgba(255, 255, 255, 0.05)",
         border: "1px solid rgba(255, 255, 255, 0.1)",
-        backdropFilter: "blur(10px)"
+        backdropFilter: "blur(10px)",
       }}
     >
-      <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--color-heading)" }}>
+      <h2
+        className="text-2xl font-bold mb-6"
+        style={{ color: "var(--color-heading)" }}
+      >
         Contact Information
       </h2>
-      
+
       <div className="space-y-6">
         {contactDetails.map((detail, index) => {
           const Icon = detail.icon;
@@ -55,7 +57,10 @@ export default function ContactInfo() {
               </div>
               <div>
                 <p className="text-sm opacity-70">{detail.label}</p>
-                <p className="font-medium" style={{ color: "var(--color-text)" }}>
+                <p
+                  className="font-medium"
+                  style={{ color: "var(--color-text)" }}
+                >
                   {detail.value}
                 </p>
               </div>
@@ -71,20 +76,29 @@ export default function ContactInfo() {
               {content}
             </a>
           ) : (
-            <div key={index} className="hover:bg-white/5 rounded-lg transition-colors duration-300">
+            <div
+              key={index}
+              className="hover:bg-white/5 rounded-lg transition-colors duration-300"
+            >
               {content}
             </div>
           );
         })}
       </div>
 
-      <div className="mt-8 p-4 rounded-lg" style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}>
-        <h3 className="font-semibold mb-2" style={{ color: "var(--color-accent)" }}>
+      <div
+        className="mt-8 p-4 rounded-lg"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+      >
+        <h3
+          className="font-semibold mb-2"
+          style={{ color: "var(--color-accent)" }}
+        >
           Availability
         </h3>
         <p className="text-sm opacity-80">
-          I'm currently available for freelance projects and full-time opportunities. 
-          Let's discuss how we can work together!
+          I'm currently available for freelance projects and full-time
+          opportunities. Let's discuss how we can work together!
         </p>
       </div>
     </div>

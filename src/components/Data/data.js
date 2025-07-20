@@ -22,6 +22,7 @@ import {
   Settings,
   Star,
   Zap,
+  
 } from "lucide-react";
 
 // ===== SKILLS DATA =====
@@ -30,16 +31,11 @@ export const skills = [
   { icon: Layers, name: "TypeScript", category: "Language" },
   { icon: Zap, name: "JavaScript", category: "Language" },
   { icon: Server, name: "Node.js", category: "Backend" },
-  { icon: Cpu, name: "Python", category: "Language" },
   { icon: Monitor, name: "Tailwind", category: "Styling" },
   { icon: Globe, name: "HTML5", category: "Frontend" },
   { icon: Settings, name: "CSS3", category: "Styling" },
   { icon: Database, name: "MongoDB", category: "Database" },
-  { icon: HardDrive, name: "PostgreSQL", category: "Database" },
-  { icon: Layers, name: "GraphQL", category: "API" },
   { icon: GitBranch, name: "Git", category: "Tools" },
-  { icon: Container, name: "Docker", category: "DevOps" },
-  { icon: Cloud, name: "AWS", category: "Cloud" },
 ];
 
 // ===== EXPERIENCE DATA =====
