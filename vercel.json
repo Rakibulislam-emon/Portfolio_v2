@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/((?!resume\\.pdf$).*)",
+      "source": "/((?!Rakibul_Islam_Emon_Resume\\.pdf$).*)",
       "destination": "/index.html"
     }
   ]
