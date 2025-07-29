@@ -1,4 +1,4 @@
-import {
+import { 
   FaCode,
   FaEnvelope,
   FaFacebook,
@@ -11,7 +11,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="relative py-12 bg-[var(--header-background)]">
+    <footer className="relative py-14  bg-[var(--header-background)]">
       {/* Animated background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/4 w-32 h-32 bg-accent rounded-full blur-3xl animate-pulse"></div>
@@ -22,7 +22,7 @@ export default function Footer() {
         {/* Main content */}
         <div className="flex flex-col items-center gap-8">
           {/* Brand section */}
-          <div className="text-center">
+          <div className="text-center ">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-heading to-accent bg-clip-text text-transparent mb-2">
               Let's Connect & Create
             </h3>
@@ -33,39 +33,33 @@ export default function Footer() {
           </div>
 
           {/* Social Links Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 w-full max-w-2xl">
+          <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 w-full max-w-2xl">
             <SocialLink
-              href="https://github.com/yourusername"
+              href="https://github.com/Rakibulislam-emon"
               label="GitHub"
               icon={<FaGithub />}
               color="hover:text-gray-400"
             />
             <SocialLink
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/rakibul-islam-emon/"
               label="LinkedIn"
               icon={<FaLinkedin />}
               color="hover:text-blue-400"
             />
             <SocialLink
-              href="https://twitter.com/yourusername"
-              label="Twitter"
-              icon={<FaTwitter />}
-              color="hover:text-sky-400"
-            />
-            <SocialLink
-              href="https://facebook.com/yourusername"
+              href="https://www.facebook.com/rakib.hussein.543792"
               label="Facebook"
               icon={<FaFacebook />}
               color="hover:text-blue-500"
             />
             <SocialLink
-              href="https://wa.me/yourwhatsappphonenumber"
+              href="https://wa.me/01979237056"
               label="WhatsApp"
               icon={<FaWhatsapp />}
               color="hover:text-green-400"
             />
             <SocialLink
-              href="mailto:youremail@example.com"
+              href="mailto:rakibulislamemon60@gmail.com"
               label="Email"
               icon={<FaEnvelope />}
               color="hover:text-red-400"

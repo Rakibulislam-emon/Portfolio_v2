@@ -24,6 +24,17 @@ import {
   Zap,
   
 } from "lucide-react";
+// social links
+import {
+  FaCode,
+  FaEnvelope,
+  FaFacebook,
+  FaGithub,
+  FaHeart,
+  FaLinkedin,
+  FaTwitter,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 // ===== SKILLS DATA =====
 export const skills = [
@@ -230,3 +241,4 @@ export const codeSnippetData = [
 export const contactInfo = [
   // Add your contact information here
 ];
+
